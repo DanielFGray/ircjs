@@ -467,13 +467,6 @@ concat-stream@^1.6.0:
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
 
-concurrify@^1.0.0:
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/concurrify/-/concurrify-1.0.3.tgz#591f4675271b5ee5b90ef209eadda37b782e735b"
-  dependencies:
-    sanctuary-type-classes "^8.0.0"
-    sanctuary-type-identifiers "^2.0.0"
-
 configstore@^3.0.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/configstore/-/configstore-3.1.1.tgz#094ee662ab83fad9917678de114faaea8fcdca90"
@@ -616,10 +609,6 @@ delayed-stream@~1.0.0:
 delegates@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delegates/-/delegates-1.0.0.tgz#84c6e159b81904fdca59a0ef44cd870d31250f9a"
-
-denque@^1.1.1:
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/denque/-/denque-1.2.3.tgz#98c50c8dd8cdfae318cc5859cc8ee3da0f9b0cc2"
 
 detect-libc@^1.0.2:
   version "1.0.3"
@@ -1043,22 +1032,6 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-fluture-sanctuary-types@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/fluture-sanctuary-types/-/fluture-sanctuary-types-2.0.0.tgz#854d171e05fab915c2b189836c2cbf6d7ee0c9ac"
-  dependencies:
-    sanctuary-type-identifiers "^2.0.0"
-
-fluture@^8.0.2:
-  version "8.0.2"
-  resolved "https://registry.yarnpkg.com/fluture/-/fluture-8.0.2.tgz#015f8b36b994188fb33d3bfa0da327b520a5e047"
-  dependencies:
-    concurrify "^1.0.0"
-    denque "^1.1.1"
-    inspect-f "^1.2.0"
-    sanctuary-type-classes "^8.0.0"
-    sanctuary-type-identifiers "^2.0.0"
-
 for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -1380,10 +1353,6 @@ inquirer@^3.0.6:
     string-width "^2.1.0"
     strip-ansi "^4.0.0"
     through "^2.3.6"
-
-inspect-f@^1.2.0:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/inspect-f/-/inspect-f-1.2.2.tgz#7572803dc59099850e51d5c94f3d7962df10e46d"
 
 invert-kv@^1.0.0:
   version "1.0.0"
@@ -2546,17 +2515,11 @@ sanctuary-type-classes@7.1.1, sanctuary-type-classes@7.1.x:
   dependencies:
     sanctuary-type-identifiers "1.0.x"
 
-sanctuary-type-classes@^8.0.0:
-  version "8.1.1"
-  resolved "https://registry.yarnpkg.com/sanctuary-type-classes/-/sanctuary-type-classes-8.1.1.tgz#238e3a9ca675c07de7cadfbf8ef1f98f37c6890b"
-  dependencies:
-    sanctuary-type-identifiers "1.0.x"
-
 sanctuary-type-identifiers@1.0.x:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/sanctuary-type-identifiers/-/sanctuary-type-identifiers-1.0.0.tgz#e8f359f006cb5e624cfb8464603fc114608bde9f"
 
-sanctuary-type-identifiers@2.0.1, sanctuary-type-identifiers@2.0.x, sanctuary-type-identifiers@^2.0.0:
+sanctuary-type-identifiers@2.0.1, sanctuary-type-identifiers@2.0.x:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/sanctuary-type-identifiers/-/sanctuary-type-identifiers-2.0.1.tgz#fc524cf6dd92cebfcbb0dd9509eff193159a20ed"
 

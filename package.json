@@ -11,8 +11,6 @@
   "license": "GPL-3.0",
   "dependencies": {
     "commander": "^2.15.1",
-    "fluture": "^8.0.2",
-    "fluture-sanctuary-types": "^2.0.0",
     "ramda": "^0.25.0",
     "rxjs": "^5.5.10",
     "sanctuary": "^0.14.1"

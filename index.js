@@ -1,3 +1,4 @@
+const fs = require('fs')
 const net = require('net')
 const { Observable } = require('rxjs')
 const { R, S } = require('./bloat')
@@ -13,14 +14,14 @@ const T = () => true
 const isString = is(String)
 const thread = (x, ...xs) => (typeof x === 'function' ? pipe([x, ...xs]) : pipe(xs, x))
 const tap = (...fn) => v => thread(v, ...fn, () => v)
-const log = tap(console.log)
+const log = tap(x => console.dir(x, { colors: true }))
 
 const client = net.connect({ host: 'irc.rizon.net', port: '6667' })
 client.setEncoding('utf-8')
 
 const nick = 'dysfiguredBot'
 
-const write = thread(tap(x => client.write(`${x}\r\n`)), x => log(`--> ${x}`))
+const write = thread(tap(x => client.write(`${x}\r\n`)), x => console.log(`--> ${x}`))
 
 const connection$ = Observable.create(o => {
   client.on('data', x => o.next(x))
@@ -31,7 +32,7 @@ const connection$ = Observable.create(o => {
     [T, thread(log, Array.of)],
   ])(x))
   .filter(Boolean)
-  .do(x => log(`<-- ${x}`))
+  .do(x => console.log(`<-- ${x}`))
   .publishReplay()
   .refCount()
 
@@ -50,8 +51,19 @@ connection$
   .map(s => 'PONG '.concat(s.slice(5)))
   .subscribe(write, console.error)
 
+const messages$ = connection$
+  .filter(x => words(x)[1] === 'PRIVMSG')
+
+fs.readdir('./plugins', (e, list) => {
+  list
+    .filter(f => ! f.startsWith('.'))
+    .map(f => require(`./plugins/${f}`)(messages$)) // eslint-disable-line global-require,import/no-dynamic-require,max-len
+    .reduce(((p, c) => p.merge(c)), Observable.of())
+    .subscribe(write, console.error)
+})
+
 const processOn = (events, fn) => events.forEach(e => process.on(e, fn))
-processOn(['SIGTERM', 'SIGINT', 'exit'], () => {
+processOn(['SIGTERM', 'SIGINT', 'exit', 'uncaughtException'], () => {
   write('QUIT Bot terminated')
   process.exit()
 })
