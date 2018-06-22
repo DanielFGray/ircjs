@@ -1,7 +1,7 @@
 const fs = require('fs')
 const net = require('net')
 const { Observable } = require('rxjs')
-const { R, S } = require('./bloat')
+const { R, S } = require('./utils')
 
 const {
   test, is, pipe, lines, words, equals,
